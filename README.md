@@ -4,7 +4,7 @@
 
 # Khắc phục bị tấn công
 
-- Thêm htmlentities() vào khi xuất ra table -> `<?php echo htmlentities($user['name'])?>`
+- Thêm `htmlentities()` vào khi xuất value ra table -> VD: `<?php echo htmlentities($user['name'])?>`
 
 # php-training
 
