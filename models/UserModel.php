@@ -4,6 +4,16 @@ require_once 'BaseModel.php';
 
 class UserModel extends BaseModel {
 
+
+    // Hàm lấy ra version theo userId
+    function getVersionByUserId($userId) {
+        // Truy vấn lấy ra version
+        $sql = "SELECT version FROM users WHERE id = ".$userId;
+        $result = $this->select($sql);
+        // Kiểm tra câu truy vấn có thành công không
+        return $result[0]['version'];
+    }
+
     public function findUserById($id) {
         $sql = 'SELECT * FROM users WHERE id = '.$id;
         $user = $this->select($sql);
