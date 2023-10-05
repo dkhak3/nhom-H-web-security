@@ -25,7 +25,7 @@ if (!empty($_POST['submit'])) {
         // dùng base64_decode() để giải mã giá trị của $versionEncode
         if (base64_decode($_POST['version']) === $versionCurrentByUserId) {
             // nếu khớp sẽ cho phép cập nhật dữ liệu
-            $userModel->updateUser($_POST);
+            $userModel->updateUser($_POST, $versionCurrentByUserId);
             header('location: list_users.php');
         }
         else {
