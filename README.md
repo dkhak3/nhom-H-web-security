@@ -6,13 +6,13 @@
 
 - Thêm `addslashes()` vào $userName $md5Password bên UserModel trong public function auth -> `$sql = 'SELECT \* FROM users WHERE name = "' . addslashes($userName) . '" AND password = "'.addslashes($md5Password).'"';`
 
-- Bên github tự chèn dấu `\` bên `$sql = 'SELECT \* FROM users WHERE name = "' . addslashes($userName) . '" AND password = "'.addslashes($md5Password).'"';` mọi người lưu ý khi copy về bỏ dấu `\` ngay sau dấu `*`
+- Bên github tự chèn dấu `\` bên `$sql = 'SELECT \* FROM users WHERE name = "' . addslashes($userName) . '" AND password = "'.addslashes($md5Password).'"';` mọi người lưu ý khi copy về bỏ dấu `\` ngay trước dấu `*`
 
 # Giải thích khắc phục bị tấn công
 
 - Hàm `addslashes()` thêm dấu gạch chéo `\` trước các ký tự đặc biệt như dấu nháy đơn `'`, dấu nháy kép `"`, dấu chấm phẩy `;` và dấu gạch chéo `\` trong chuỗi. Ví dụ khi người dùng nhập giá trị cho biến `$username` là `' OR 1=1 --` sau khi sử dụng hàm trên sẽ trở thành `\' OR 1=1 --`. Câu truy vấn khi đó: `SELECT \* FROM users WHERE username = '\' OR 1=1 --'` trở nên an toàn
 
-- Bên github tự chèn dấu `\` bên `SELECT \* FROM users WHERE username = '\' OR 1=1 --'` mọi người lưu ý khi copy về bỏ dấu `\` ngay sau dấu `*`
+- Bên github tự chèn dấu `\` bên `SELECT \* FROM users WHERE username = '\' OR 1=1 --'` mọi người lưu ý khi copy về bỏ dấu `\` ngay trước dấu `*`
 
 # php-training
 
