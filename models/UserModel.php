@@ -77,7 +77,8 @@ class UserModel extends BaseModel {
      */
     public function insertUser($input) {
         $id = bin2hex(openssl_random_pseudo_bytes(16));
-        $sql = "INSERT INTO `app_web1`.`users` (`id`, `name`, `password`) VALUES ('".$id."', '" . $input['name'] . "', '".md5($input['password'])."')";
+        $sql = "INSERT INTO `app_web1`.`users` (`id`, `name`, `password`) 
+        VALUES ('".$id."', '" . $input['name'] . "', '".md5($input['password'])."')";
 
         $user = $this->insert($sql);
 
