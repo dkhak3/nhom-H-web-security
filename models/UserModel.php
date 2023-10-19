@@ -15,7 +15,7 @@ class UserModel extends BaseModel {
     }
 
     public function findUserById($id) {
-        $sql = 'SELECT * FROM users WHERE id = "'.$id.'"';
+        $sql = 'SELECT * FROM users WHERE id = '.$id;
         $user = $this->select($sql);
 
         return $user;
@@ -48,7 +48,7 @@ class UserModel extends BaseModel {
      * @return mixed
      */
     public function deleteUserById($id) {
-        $sql = 'DELETE FROM users WHERE id = "'.$id.'"';
+        $sql = 'DELETE FROM users WHERE id = '.$id;
         return $this->delete($sql);
 
     }
@@ -58,17 +58,19 @@ class UserModel extends BaseModel {
      * @param $input
      * @return mixed
      */
-    public function updateUser($input) {
+    public function updateUser($input, $ver) {
+        $version = (int)$ver;
+        $version += 1;
         $sql = 'UPDATE users SET 
-                 name = "' . mysqli_real_escape_string(self::$_connection, $input['name']) .'", 
-                 password="'. md5($input['password']) .'"
-                WHERE id = "'. $input['id'].'"';
+                name = "' . mysqli_real_escape_string(self::$_connection, $input['name']) .'", 
+                password="'. md5($input['password']) .'",
+                version="'. $version .'"
+                WHERE id = ' . $input['id'];
 
         $user = $this->update($sql);
 
         return $user;
     }
-
 
     /**
      * Insert user
@@ -76,15 +78,14 @@ class UserModel extends BaseModel {
      * @return mixed
      */
     public function insertUser($input) {
-        $id = bin2hex(openssl_random_pseudo_bytes(16));
-        $sql = "INSERT INTO `app_web1`.`users` (`id`, `name`, `password`) VALUES ('".$id."', '" . $input['name'] . "', '".md5($input['password'])."')";
+        $sql = "INSERT INTO `app_web1`.`users` (`name`, `password`) VALUES (" .
+                "'" . $input['name'] . "', '".md5($input['password'])."')";
 
         $user = $this->insert($sql);
 
         return $user;
     }
 
-    
     /**
      * Search users
      * @param array $params
