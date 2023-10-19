@@ -1,7 +1,9 @@
 <?php
 // Start the session
 session_start();
-
+if(!isset($_SESSION['login'])){
+    header('Location: login.php');
+}
 require_once 'models/UserModel.php';
 $userModel = new UserModel();
 
