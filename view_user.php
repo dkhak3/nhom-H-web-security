@@ -8,6 +8,7 @@ $id = NULL;
 if (!empty($_GET['id'])) {
     $id = $_GET['id'];
     $user = $userModel->findUserById($id);//Update existing user
+    echo $id; 
 }
 
 
@@ -24,15 +25,17 @@ if (!empty($_POST['submit'])) {
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>User form</title>
     <?php include 'views/meta.php' ?>
 </head>
-<body>
-<?php include 'views/header.php'?>
-<div class="container">
 
-    <?php if ($user || empty($id)) { ?>
+<body>
+    <?php include 'views/header.php'?>
+    <div class="container">
+
+        <?php if ($user || empty($id)) { ?>
         <div class="alert alert-warning" role="alert">
             User profile
         </div>
@@ -51,11 +54,12 @@ if (!empty($_POST['submit'])) {
                 <span><?php if (!empty($user[0]['name'])) echo htmlentities($user[0]['email']) ?></span>
             </div>
         </form>
-    <?php } else { ?>
+        <?php } else { ?>
         <div class="alert alert-success" role="alert">
             User not found!
         </div>
-    <?php } ?>
-</div>
+        <?php } ?>
+    </div>
 </body>
+
 </html>
