@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `app_web1`
+-- Cơ sở dữ liệu: `app_web1_idor`
 --
-CREATE DATABASE IF NOT EXISTS `app_web1` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `app_web1`;
+CREATE DATABASE IF NOT EXISTS `app_web1_idor` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `app_web1_idor`;
 
 -- --------------------------------------------------------
 
