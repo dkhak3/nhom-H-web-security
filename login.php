@@ -15,8 +15,8 @@ if (!empty($_POST['submit'])) {
     if ($user = $userModel->auth($users['username'], $users['password'])) {
         //Login successful
         $_SESSION['id'] = $user[0]['id'];
-
         $_SESSION['message'] = 'Login successful';
+        $_SESSION['login'] = TRUE;
         header('location: list_users.php');
     }else {
         //Login failed

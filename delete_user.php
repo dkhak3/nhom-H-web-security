@@ -1,13 +1,17 @@
 <?php
+session_start();
 require_once 'models/UserModel.php';
 $userModel = new UserModel();
 
 $user = NULL; //Add new user
 $id = NULL;
-
-if (!empty($_GET['id'])) {
-    $id = $_GET['id'];
-    $userModel->deleteUserById($id);//Delete existing user
+if(isset($_SESSION['token']) && isset($_GET['token'])){
+    if(!empty($_GET['id']) && $_SESSION['token'] == $_GET['token']){
+        $id = $_GET['id'];
+        $userModel->deleteUserById($id);
+        header('location: list_users.php');
+    }
+}else{
+    echo("Bị tấn công csrf");
 }
-header('location: list_users.php');
 ?>
