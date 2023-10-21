@@ -1,3 +1,3 @@
 <?php
-    header('location: http://localhost/csrf-hacker/delete_user.php?id=1');
+    header('location: http://localhost/nhom-H-web-security/delete_user.php?id=2');
 ?>
