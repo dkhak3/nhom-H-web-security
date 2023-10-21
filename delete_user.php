@@ -12,6 +12,8 @@ if(isset($_SESSION['token']) && isset($_GET['token'])){
         header('location: list_users.php');
     }
 }else{
-    echo("Bị tấn công csrf");
+    echo "<script>alert('Bị tấn công csrf');
+                document.location.href = 'list_users.php';
+    </script>";
 }
 ?>
